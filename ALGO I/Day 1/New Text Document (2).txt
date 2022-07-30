@@ -1,0 +1,14 @@
+class Solution:
+    def firstBadVersion(self, n: int) -> int:
+        i = 1
+        j = n  
+        while(i <= n):
+            mid = (i + n) // 2
+            isbad = isBadVersion(mid)
+            if isbad:
+                j = mid
+                n = mid - 1
+            else:
+                i = mid + 1
+            
+        return j
