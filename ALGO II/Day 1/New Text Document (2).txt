@@ -1,0 +1,15 @@
+from bisect import bisect_left
+class Solution:
+    def searchMatrix(self, mat: List[List[int]], target: int) -> bool:
+        n=len(mat)
+        m=len(mat[0])
+        for i in range(n):
+            if mat[i][m-1]>=target:
+                break
+        else:
+            return False
+        
+        ind=bisect_left(mat[i],target)
+        if ind<m:
+            return mat[i][ind]==target
+        return True
